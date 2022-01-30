@@ -9,7 +9,6 @@
               @click="edit(item.name)"
             >mdi-account-edit</v-icon>
           </div>
-          
           <p class="text-center name">{{item.name}}</p>
           <p class="text-center class">The {{item.descriptor}}<br> {{item.className}}</p>
           <div class="charimg">

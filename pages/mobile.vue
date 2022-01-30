@@ -4,9 +4,11 @@
       <!-- <h1>{{characters}}</h1> -->
       <v-col cols="6" md="4" lg="3" class="fill-height" v-for="(item, index) in this.characters" v-bind:key="index">
         <div class="character">
-          <v-icon class="editIcon" color="black"
-            @click="edit(item.name)"
-          >mdi-account-edit</v-icon>
+          <div class="editIcon">
+            <v-icon color="black"
+              @click="edit(item.name)"
+            >mdi-account-edit</v-icon>
+          </div>
           <p class="text-center name">{{item.name}}</p>
           <p class="text-center class">The {{item.descriptor}}<br> {{item.className}}</p>
           <!-- <div class="charimg">
