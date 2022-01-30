@@ -84,7 +84,16 @@ export default {
       }else{
         await setDoc(doc(this.stateDB, "characters", char.name), char)
       }
-      this.$router.push({ path: '/' })
+      if("maxTouchPoints" in navigator){
+        if(navigator.maxTouchPoints > 0){
+          if(window.screen.width<600){
+            this.$router.push({ path: '/mobile' })
+          }
+        }
+      }else{
+        this.$router.push({ path: '/' })
+      }
+      
     }
   },
   computed: mapState({

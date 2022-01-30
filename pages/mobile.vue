@@ -4,6 +4,9 @@
       <!-- <h1>{{characters}}</h1> -->
       <v-col cols="6" md="4" lg="3" class="fill-height" v-for="(item, index) in this.characters" v-bind:key="index">
         <div class="character">
+          <v-icon class="editIcon" color="black"
+            @click="edit(item.name)"
+          >mdi-account-edit</v-icon>
           <p class="text-center name">{{item.name}}</p>
           <p class="text-center class">The {{item.descriptor}}<br> {{item.className}}</p>
           <!-- <div class="charimg">
@@ -13,12 +16,12 @@
             <v-row class="mx-1">
               <v-col cols="6">
                 <div >
-                  <v-img src="/fumble-3.png" height="50px" contain @click="change(item.fumbles+1, item.name, 'fumbles')" class="dice"></v-img>
+                  <v-img :src="`${prefix}/fumble-3.png`"  height="50px" contain @click="change(item.fumbles+1, item.name, 'fumbles')" class="dice"></v-img>
                 </div>
               </v-col>
               <v-col cols="6">
                 <div >
-                  <v-img src="/d20-2.png" height="50px" contain @click="change(item.crits+1, item.name, 'crits')" class="dice"></v-img>
+                  <v-img :src="`${prefix}/d20-2.png`" height="50px" contain @click="change(item.crits+1, item.name, 'crits')" class="dice"></v-img>
                 </div>
               </v-col>
               <v-col cols="6">
@@ -58,6 +61,7 @@ export default {
   data() {
     return {
       stateDB:{},
+      prefix: ''
     }
   },
   computed: mapState({
@@ -100,6 +104,7 @@ export default {
   outline: 5px solid black;
   border-radius: 8px;
   height: 210px;
+  position: relative;
 }
 .name{
   font-family:'Pushster', cursive !important;
@@ -129,8 +134,11 @@ export default {
 .dice:hover{
   transform: scale(1.2);
 }
-</style>
-<style>
+.editIcon{
+  position: absolute;
+  right: 12px;
+  top: 14px;
+}
 .logo{
     max-width: 150px !important;
 }

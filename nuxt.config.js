@@ -11,7 +11,10 @@ export default {
   },
 
   // Target: https://go.nuxtjs.dev/config-target
-  target: 'server',
+  target: 'static',
+  // router: {
+  //   base: '/eberrongit/'
+  // },
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -28,6 +31,7 @@ export default {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.png' },
+      // { rel: 'icon', type: 'image/x-icon', href: '/eberrongit/favicon.png' },
       {
         rel: "preconnect",
         href: "https://fonts.googleapis.com",

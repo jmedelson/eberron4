@@ -2,9 +2,9 @@
   <div class="content">
     <v-row justify="center" class="mx-1">
       <!-- <h1>{{characters}}</h1> -->
-      <v-col cols="12" md="4" lg="3" class="fill-height" v-for="(item, index) in this.characters" v-bind:key="index">
+      <v-col cols="12" sm="6" md="4" lg="3" class="fill-height" v-for="(item, index) in this.characters" v-bind:key="index">
         <div class="character">
-          <v-icon class="edit" large color="black"
+          <v-icon class="editIcon" large color="black"
             @click="edit(item.name)"
           >mdi-account-edit</v-icon>
           <p class="text-center name">{{item.name}}</p>
@@ -16,12 +16,12 @@
             <v-row class="mx-3">
               <v-col cols="6">
                 <div >
-                  <v-img src="/fumble-3.png" height="50px" contain @click="change(item.fumbles+1, item.name, 'fumbles')" class="dice"></v-img>
+                  <v-img :src="`${prefix}/fumble-3.png`"  height="50px" contain @click="change(item.fumbles+1, item.name, 'fumbles')" class="dice"></v-img>
                 </div>
               </v-col>
               <v-col cols="6">
                 <div >
-                  <v-img src="/d20-2.png" height="50px" contain @click="change(item.crits+1, item.name, 'crits')" class="dice"></v-img>
+                  <v-img :src="`${prefix}/d20-2.png`" height="50px" contain @click="change(item.crits+1, item.name, 'crits')" class="dice"></v-img>
                 </div>
               </v-col>
               <v-col cols="6">
@@ -61,6 +61,8 @@ export default {
   data() {
     return {
       stateDB:{},
+      prefix: ''
+      // prefix: '/eberrongit'
     }
   },
   computed: mapState({
@@ -112,11 +114,6 @@ export default {
   height: 560px;
   position: relative;
 }
-.edit{
-  position: absolute;
-  right: 12px;
-  top: 14px;
-}
 .name{
   font-family:'Pushster', cursive !important;
   font-size: 2.5rem;
@@ -144,5 +141,10 @@ export default {
 }
 .dice:hover{
   transform: scale(1.2);
+}
+.editIcon{
+  position: absolute;
+  right: 12px;
+  top: 14px;
 }
 </style>
